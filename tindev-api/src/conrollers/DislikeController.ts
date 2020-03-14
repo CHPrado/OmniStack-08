@@ -1,7 +1,9 @@
-const Dev = require('../models/Dev');
+import { Response, Request } from 'express';
 
-module.exports = {
-  async store(req, res) {
+import Dev from '../models/Dev';
+
+export default {
+  async store(req: Request, res: Response): Promise<Response> {
     const { user } = req.headers;
     const { devId } = req.params;
 

@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
+
+import { DevProps } from '../interfaces/DevSchema';
 
 const DevSchema = new Schema({
   name: {
@@ -26,4 +28,4 @@ const DevSchema = new Schema({
   timestamps: true,
 });
 
-module.exports = model('Dev', DevSchema);
+export default model<DevProps>('Dev', DevSchema);

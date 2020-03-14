@@ -1,9 +1,10 @@
-const axios = require('axios');
+import axios from 'axios';
+import { Request, Response } from 'express';
 
-const Dev = require('../models/Dev');
+import Dev from '../models/Dev';
 
-module.exports = {
-  async index(req, res) {
+export default {
+  async index(req: Request, res: Response): Promise<Response> {
     const { user } = req.headers;
 
     const loggedDev = await Dev.findById(user);
@@ -19,7 +20,7 @@ module.exports = {
     return res.json(users);
   },
 
-  async store(req, res) {
+  async store(req: Request, res: Response): Promise<Response> {
     const { username } = req.body;
 
     const userExists = await Dev.findOne({ user: username });

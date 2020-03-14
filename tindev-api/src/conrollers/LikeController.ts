@@ -1,8 +1,11 @@
-const Dev = require('../models/Dev');
+import { Response } from 'express';
 
-module.exports = {
-  async store(req, res) {
-    const { user } = req.headers;
+import Dev from '../models/Dev';
+import { AppRequestProps } from '../interfaces/AppRequest';
+
+export default {
+  async store(req: AppRequestProps, res: Response): Promise<Response> {
+    const user = req.headers.user as string;
     const { devId } = req.params;
 
     const loggedDev = await Dev.findById(user);
