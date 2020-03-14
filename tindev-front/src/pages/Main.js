@@ -45,7 +45,7 @@ const Main = ({ match }) => {
     setUsers(users.filter((user) => user._id !== id));
   }
 
-  async function handleDislikeLike(id) {
+  async function handleDislike(id) {
     await api.post(`/devs/${id}/dislikes`, null, {
       headers: { user: match.params.id },
     });
@@ -69,7 +69,7 @@ const Main = ({ match }) => {
               </footer>
 
               <div className="buttons">
-                <button type="button" onClick={() => handleDislikeLike(user._id)}>
+                <button type="button" onClick={() => handleDislike(user._id)}>
                   <img src={dislike} alt="Dislike" />
                 </button>
                 <button type="button" onClick={() => handleLike(user._id)}>
