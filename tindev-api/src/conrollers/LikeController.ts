@@ -1,7 +1,7 @@
 import { Response } from 'express';
 
-import Dev from '../models/Dev';
 import { AppRequestProps } from '../interfaces/AppRequest';
+import Dev from '../models/Dev';
 
 export default {
   async store(req: AppRequestProps, res: Response): Promise<Response> {
